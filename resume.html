@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Haaga</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+  	<style>
+	  	#title-label{
+	  		font-size:20px;
+	  	}
+	  	body{
+	  		background-color:#fff;
+	  		animation: all 1s ease-in;
+	  	}
+	  	body.first-section{
+	  		background-color:#F29559;
+	  	}
+	  	.my-info{
+	  		color:#fff;
+	  		position: fixed;
+	  		top:10px;
+	  		padding-left:1rem;
+	  	}
+	  	.my-info *{
+	  		display:none;
+	  	}
+	  	.scroll-down-prompt *{
+	  		text-align:center;
+	  		position:fixed;
+	  		top:50%;
+	  	}
+  	</style>
+
+  	<div class="my-info">
+		<h1 id="name-label">Joseph Haaga</h1>
+		<h2 id="title-label">Software Development and Machine Learning</h2>
+	</div>
+	<div class="row">
+		<div class="scroll-down-prompt">
+			<h3>Scroll Down</h3>
+		</div>
+	</div>
+    <div class="row">
+      <div class="large-12 columns" style="height:50vh;">
+      </div>
+      <div class="large-12 columns" style="height:50vh;" id="waypoint-1">
+      </div>
+      <div class="large-12 columns" style="height:100%;" id="waypoint-2">
+      	
+      </div>
+      <div class="large-12 columns" style="height:150vh;">
+        
+      </div>
+      <div class="large-12 columns">
+
+      </div>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script   src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"   integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE="   crossorigin="anonymous"></script>
+
+    <script>
+    	var waypoint1 = new Waypoint({
+		  element: document.getElementById('waypoint-1'),
+		  handler: function(direction) {
+		  	if(direction=="down"){
+			  	console.log("waypoint reached "+direction);
+			  	$('.scroll-down-prompt').fadeOut(300);
+		  	}else{
+		  		$('.scroll-down-prompt').fadeIn(300);
+		  	}
+		  }
+		});
+
+    	var waypoint2 = new Waypoint({
+		  element: document.getElementById('waypoint-2'),
+		  handler: function(direction) {
+		  	if(direction=="down"){
+			  	console.log("waypoint reached "+direction);
+			  	// $('#name-label').css("float","left");
+			  	// $('#name-label').css("position","fixed");
+			  	// $('#name-label').css("-webkit-transform","translateZ(0)");
+			  	// $('#name-label').css("-webkit-overflow-scrolling","touch");
+			  	$('body').animate({'background-color':'#B098A4'},1000);
+			  	// $('#title-label').animate({'opacity':'0'},400);
+			  	// $('#name-label').css("position","fixed");
+			  	$('#name-label').css("top","10px");
+			  	
+		  	// $('body').addClass("first-section");
+		  	}else{
+		  		$('body').animate({'background-color':'#FFF'},1000);
+		  		// $('#name-label').css("position","relative");
+		  	}
+		  }
+		});
+
+		$(document).ready(function(){
+			// $('#name-label').animate({opacity: '1'},"slow");
+			$('#name-label').fadeIn(500);
+			$('#title-label').delay(500).fadeIn(750);
+		});
+    </script>
+
+  </body>
+</html>
